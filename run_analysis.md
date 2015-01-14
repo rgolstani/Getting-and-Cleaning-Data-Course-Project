@@ -779,5 +779,4 @@ dtidy <- final_dataset %>%
 write.table(dtidy, file="./data/result.txt", row.name=FALSE)
 ```
 
-# Now it's time to generate the codebook.
 
