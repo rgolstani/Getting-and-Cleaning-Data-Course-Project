@@ -165,71 +165,55 @@ hr {
 <body>
 <h1>Introduction</h1>
 
-<p>As stated in the file <em>features_info.txt</em>, the variable&#39;s names should be interpreted in the following way:</p>
+<p>The details about the concepts behinde these measures can be found on the <em>features_info.txt</em>.</p>
+
+<p>As stated in the above mentioned file, there some important information on the features names.</p>
+
+<p>Thus, we decided to break it down in two variables: measure and axis, and put the aggregation function on columns. Here is some exemples of this break.  For the tridimensional magnitude signals, the contents of the &ldquo;axis&rdquo; column is NA.</p>
 
 <table><thead>
 <tr>
 <th>field</th>
-<th>time domain</th>
-<th>acceleration domain</th>
-<th>instrument</th>
-<th>jerk signals</th>
-<th>magnitude</th>
-<th>aggregation function</th>
+<th>measure</th>
 <th>axis</th>
+<th>destination variable</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>tBodyGyro-mean()-X</td>
-<td>t</td>
-<td>Body</td>
-<td>Gyro</td>
-<td></td>
-<td></td>
-<td>mean()</td>
-<td>-X</td>
+<td>tBodyGyro</td>
+<td>X</td>
+<td>mean</td>
 </tr>
 <tr>
 <td>tBodyGyroJerkMag-mean()</td>
-<td>t</td>
-<td>Body</td>
-<td>Gyro</td>
-<td>Jerk</td>
-<td>Mag</td>
-<td>mean()</td>
-<td></td>
+<td>tBodyGyroJerk</td>
+<td>NA</td>
+<td>mean</td>
 </tr>
 <tr>
 <td>tGravityAccMag-mean()</td>
-<td>t</td>
-<td>Gravity</td>
-<td>Acc</td>
-<td></td>
-<td>Mag</td>
-<td>mean()</td>
-<td></td>
+<td>tGravityAccMag</td>
+<td>NA</td>
+<td>mean</td>
 </tr>
 <tr>
 <td>tBodyGyroJerk-std()-Z</td>
-<td>t</td>
-<td>Body</td>
-<td>Gyro</td>
-<td>Jerk</td>
-<td></td>
-<td>Std()</td>
-<td>-Z</td>
+<td>tBodyGyroJerk</td>
+<td>Z</td>
+<td>std</td>
 </tr>
 <tr>
 <td>fBodyGyro-mean()-Y</td>
-<td>f</td>
-<td>Body</td>
-<td>Gyro</td>
-<td></td>
-<td></td>
-<td>mean()</td>
-<td>-Y</td>
+<td>fBodyGyro</td>
+<td>Y</td>
+<td>mean</td>
 </tr>
 </tbody></table>
+
+<p>The values for the original mean and std variables reflects the mean and std of samples that forms the so called &ldquo;windows&rdquo;. Each window had 128 samples. In our dataset, we show the average of these variables in a per activity/subject/measure/axis basis. So, our aggregation reflects all windows that where already calculated.</p>
+
+<p>Hence, our final dataset has four keys for two variables</p>
 
 <h1>Variables in the dataset:</h1>
 
@@ -248,268 +232,16 @@ hr {
 <td>Identifies the subject used for collecting the measures</td>
 </tr>
 <tr>
-<td>tBodyAcc-mean()-X</td>
-<td>See description above</td>
+<td>measure</td>
+<td>one of the tBodyGyro</td>
 </tr>
 <tr>
-<td>tBodyAcc-mean()-Y</td>
-<td>See description above</td>
+<td>mean</td>
+<td>this is the average of the means</td>
 </tr>
 <tr>
-<td>tBodyAcc-mean()-Z</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyAcc-std()-X</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyAcc-std()-Y</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyAcc-std()-Z</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tGravityAcc-mean()-X</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tGravityAcc-mean()-Y</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tGravityAcc-mean()-Z</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tGravityAcc-std()-X</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tGravityAcc-std()-Y</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tGravityAcc-std()-Z</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyAccJerk-mean()-X</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyAccJerk-mean()-Y</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyAccJerk-mean()-Z</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyAccJerk-std()-X</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyAccJerk-std()-Y</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyAccJerk-std()-Z</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyGyro-mean()-X</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyGyro-mean()-Y</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyGyro-mean()-Z</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyGyro-std()-X</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyGyro-std()-Y</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyGyro-std()-Z</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyGyroJerk-mean()-X</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyGyroJerk-mean()-Y</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyGyroJerk-mean()-Z</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyGyroJerk-std()-X</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyGyroJerk-std()-Y</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyGyroJerk-std()-Z</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyAccMag-mean()</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyAccMag-std()</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tGravityAccMag-mean()</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tGravityAccMag-std()</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyAccJerkMag-mean()</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyAccJerkMag-std()</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyGyroMag-mean()</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyGyroMag-std()</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyGyroJerkMag-mean()</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>tBodyGyroJerkMag-std()</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyAcc-mean()-X</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyAcc-mean()-Y</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyAcc-mean()-Z</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyAcc-std()-X</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyAcc-std()-Y</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyAcc-std()-Z</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyAccJerk-mean()-X</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyAccJerk-mean()-Y</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyAccJerk-mean()-Z</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyAccJerk-std()-X</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyAccJerk-std()-Y</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyAccJerk-std()-Z</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyGyro-mean()-X</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyGyro-mean()-Y</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyGyro-mean()-Z</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyGyro-std()-X</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyGyro-std()-Y</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyGyro-std()-Z</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyAccMag-mean()</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyAccMag-std()</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyBodyAccJerkMag-mean()</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyBodyAccJerkMag-std()</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyBodyGyroMag-mean()</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyBodyGyroMag-std()</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyBodyGyroJerkMag-mean()</td>
-<td>See description above</td>
-</tr>
-<tr>
-<td>fBodyBodyGyroJerkMag-std()</td>
-<td>See description above</td>
+<td>std</td>
+<td>this the acctually the average of the original std&#39;s</td>
 </tr>
 </tbody></table>
 

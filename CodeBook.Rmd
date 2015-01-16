@@ -7,16 +7,23 @@ output: html_document
 
 # Introduction
 
-As stated in the file *features_info.txt*, the variable's names should be interpreted in the following way:
+The details about the concepts behinde these measures can be found on the *features_info.txt*.
 
-field                   |time domain   | acceleration domain  | instrument  | jerk signals | magnitude | aggregation function | axis
------------------------ |-----------   | -------------------  | ----------  | ------------ | --------- | -------------------- | ----
-tBodyGyro-mean()-X      |    t         | Body                 |Gyro         |              |           |       mean()         |  -X
-tBodyGyroJerkMag-mean() |    t         | Body                 |Gyro         | Jerk         | Mag       |       mean()         |
-tGravityAccMag-mean()   |    t         | Gravity              |Acc          |              | Mag       |       mean()         |
-tBodyGyroJerk-std()-Z   |    t         | Body                 |Gyro         | Jerk         |           |       Std()          |  -Z
-fBodyGyro-mean()-Y      |    f         | Body                 |Gyro         |              |           |       mean()         |  -Y
+As stated in the above mentioned file, there some important information on the features names.
 
+Thus, we decided to break it down in two variables: measure and axis, and put the aggregation function on columns. Here is some exemples of this break.  For the tridimensional magnitude signals, the contents of the "axis" column is NA.
+
+field                   |measure       | axis                 | destination variable
+----------------------- |-----------   | -------------------  | --------------------
+tBodyGyro-mean()-X      |tBodyGyro     |  X                   |     mean
+tBodyGyroJerkMag-mean() |tBodyGyroJerk |  NA                  |     mean
+tGravityAccMag-mean()   |tGravityAccMag|  NA                  |     mean
+tBodyGyroJerk-std()-Z   |tBodyGyroJerk |  Z                   |     std
+fBodyGyro-mean()-Y      |fBodyGyro     |  Y                   |     mean
+
+The values for the original mean and std variables reflects the mean and std of samples that forms the so called "windows". Each window had 128 samples. In our dataset, we show the average of these variables in a per activity/subject/measure/axis basis. So, our aggregation reflects all windows that where already calculated.
+
+Hence, our final dataset has four keys for two variables
 
 # Variables in the dataset:
 
@@ -24,69 +31,7 @@ Name     |Description
 -----    |----------
 activity| One of the following activities: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
 subject| Identifies the subject used for collecting the measures
-tBodyAcc-mean()-X|See description above
-tBodyAcc-mean()-Y|See description above
-tBodyAcc-mean()-Z|See description above
-tBodyAcc-std()-X|See description above
-tBodyAcc-std()-Y|See description above
-tBodyAcc-std()-Z|See description above
-tGravityAcc-mean()-X|See description above
-tGravityAcc-mean()-Y|See description above
-tGravityAcc-mean()-Z|See description above
-tGravityAcc-std()-X|See description above
-tGravityAcc-std()-Y|See description above
-tGravityAcc-std()-Z|See description above
-tBodyAccJerk-mean()-X|See description above
-tBodyAccJerk-mean()-Y|See description above
-tBodyAccJerk-mean()-Z|See description above
-tBodyAccJerk-std()-X|See description above
-tBodyAccJerk-std()-Y|See description above
-tBodyAccJerk-std()-Z|See description above
-tBodyGyro-mean()-X|See description above
-tBodyGyro-mean()-Y|See description above
-tBodyGyro-mean()-Z|See description above
-tBodyGyro-std()-X|See description above
-tBodyGyro-std()-Y|See description above
-tBodyGyro-std()-Z|See description above
-tBodyGyroJerk-mean()-X|See description above
-tBodyGyroJerk-mean()-Y|See description above
-tBodyGyroJerk-mean()-Z|See description above
-tBodyGyroJerk-std()-X|See description above
-tBodyGyroJerk-std()-Y|See description above
-tBodyGyroJerk-std()-Z|See description above
-tBodyAccMag-mean()|See description above
-tBodyAccMag-std()|See description above
-tGravityAccMag-mean()|See description above
-tGravityAccMag-std()|See description above
-tBodyAccJerkMag-mean()|See description above
-tBodyAccJerkMag-std()|See description above
-tBodyGyroMag-mean()|See description above
-tBodyGyroMag-std()|See description above
-tBodyGyroJerkMag-mean()|See description above
-tBodyGyroJerkMag-std()|See description above
-fBodyAcc-mean()-X|See description above
-fBodyAcc-mean()-Y|See description above
-fBodyAcc-mean()-Z|See description above
-fBodyAcc-std()-X|See description above
-fBodyAcc-std()-Y|See description above
-fBodyAcc-std()-Z|See description above
-fBodyAccJerk-mean()-X|See description above
-fBodyAccJerk-mean()-Y|See description above
-fBodyAccJerk-mean()-Z|See description above
-fBodyAccJerk-std()-X|See description above
-fBodyAccJerk-std()-Y|See description above
-fBodyAccJerk-std()-Z|See description above
-fBodyGyro-mean()-X|See description above
-fBodyGyro-mean()-Y|See description above
-fBodyGyro-mean()-Z|See description above
-fBodyGyro-std()-X|See description above
-fBodyGyro-std()-Y|See description above
-fBodyGyro-std()-Z|See description above
-fBodyAccMag-mean()|See description above
-fBodyAccMag-std()|See description above
-fBodyBodyAccJerkMag-mean()|See description above
-fBodyBodyAccJerkMag-std()|See description above
-fBodyBodyGyroMag-mean()|See description above
-fBodyBodyGyroMag-std()|See description above
-fBodyBodyGyroJerkMag-mean()|See description above
-fBodyBodyGyroJerkMag-std()|See description above
+measure| one of the tBodyGyro|tGravityAccMag|etc... See comments above.
+mean| this is the average of the means 
+std| this the acctually the average of the original std's
+
