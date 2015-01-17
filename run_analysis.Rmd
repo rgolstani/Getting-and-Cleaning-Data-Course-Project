@@ -126,7 +126,7 @@ head(dtidy)
 
 # Writing down the results
 
-At the end of the day, this is what we wanted. The final tidy dataset with four observations and two variables exported to the result.txt file.
+At the end of the day, this is what we wanted. The final tidy dataset exported to the result.txt file. A detailed description of the contents can be found in the [CoodBook](./CodeBook.md)
 
 ```{r}
 write.table(dtidy, file="./data/result.txt", row.name=FALSE)
