@@ -7,7 +7,7 @@ output: html_document
 
 # Introduction
 
-The details about the concepts behinde these measures can be found on the *features_info.txt*.
+The details about the concepts behind these measures can be found in *features_info.txt*.
 
 As stated in the above mentioned file, there some important information on the features names.
 

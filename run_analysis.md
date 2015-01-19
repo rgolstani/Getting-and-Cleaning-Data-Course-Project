@@ -47,7 +47,7 @@ dateDownload = file.info(fileName)[["mtime"]]
 
 # Reading data
 
-Ok. file downloaded with date 2015-01-14 16:42:10. Now it's time to load and merge the needed files. Instead of extracting all files from de zip file, I've used a `unz` connection. I'm not shure if it was a good choice in terms of performance (may be it processes the entire zip file for each file I try to read) but, as the dataset wasn't that big, I made the choice of not landing the files inside de zip into my hard drive.
+Ok. file downloaded with date 2015-01-19 11:02:30. Now it's time to load and merge the needed files. Instead of extracting all files from de zip file, I've used a `unz` connection. I'm not shure if it was a good choice in terms of performance (may be it processes the entire zip file for each file I try to read) but, as the dataset wasn't that big, I made the choice of not landing the files inside de zip into my hard drive.
 
 For merging the training and testing datasets, I used `rbindlist` with a `list` consisting of two `read.table` returned objects.
 
@@ -231,7 +231,7 @@ head(dtidy)
 
 # Writing down the results
 
-At the end of the day, this is what we wanted. The final tidy dataset with four observations and two variables exported to the result.txt file.
+At the end of the day, this is what we wanted. The final tidy dataset exported to the result.txt file. A detailed description of the contents can be found in the [CoodBook](./CodeBook.md)
 
 
 ```r

@@ -15,6 +15,14 @@ The goal is to create a "R" script to generate a tidy and neat dataset for use i
 
 # Details
 
-The project consists of a script (run_analysis.R) that calls the *run_analysis.Rmd* wich caries out all needed tasks (extraction, processing and writing down the results). After, the main script  also calls the *CodeBook.Rmd* wich generates the Code Book (CodeBook.md and CodeBook.html) that explains the contents of the resulting dataset.
+The project consists of a script (run_analysis.R) that calls the *run_analysis.Rmd* wich caries out all needed tasks. This includes:
+
+*install needed packages, 
+*set the working directory to the directory where the script was load from,  
+*download of the .zip file (if needed), 
+*processing and 
+*write down the results. 
+
+After, the main script  also calls the *CodeBook.Rmd* wich generates the Code Book (CodeBook.md and CodeBook.html) that explains the contents of the resulting dataset.
 
 After runing the *run_analysis.R* script, inside the "data" directory (on the working directory), it should exists a file named  result.txt, wich contains the tidy dataset, and on the working directory itself, it should exists theses files: run_analysis.html with describes the entire process along with the results, and also a CodeBook.html wich describes the generated dataset.
