@@ -7,11 +7,11 @@ output: html_document
 
 # Introduction
 
-The details about the concepts behinde these measures can be found on the *features_info.txt*.
+The details about the concepts behind these measures can be found in *features_info.txt*.
 
 As stated in the above mentioned file, there some important information on the features names.
 
-Thus, we decided to break it down in two variables: measure and axis, and put the aggregation function on columns. Here is some exemples of this break.  For the tridimensional magnitude signals, the contents of the "axis" column is NA.
+Thus, we decided to break it down in two variables: measure and axis, and put the aggregation function on columns. Here is some examples of this break.  For the three-dimensional magnitude signals, the contents of the "axis" column is NA.
 
 field                   |measure       | axis                 | destination variable
 ----------------------- |-----------   | -------------------  | --------------------
@@ -33,5 +33,5 @@ activity| One of the following activities: WALKING, WALKING_UPSTAIRS, WALKING_DO
 subject| Identifies the subject used for collecting the measures
 measure| one of the tBodyGyro|tGravityAccMag|etc... See comments above.
 mean| this is the average of the means 
-std| this the acctually the average of the original std's
+std| this the actually the average of the original std's
 

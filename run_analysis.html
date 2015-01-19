@@ -212,7 +212,7 @@ hr {
 
 <p>Here we are going to create our <em>data</em> directory and download the required <em>.zp</em> file, and them, load the packages we will use for this project.</p>
 
-<p>First, we need to create a &ldquo;data&rdquo; dicrectory for our files. I&#39;ve set de working directory as the &ldquo;.&rdquo;. If you want to change it, just put the wanted directory into the <code>setwd</code> on the <em>run_analysis.R</em> script.</p>
+<p>First, we need to create a &ldquo;data&rdquo; directory for our files. I&#39;ve set de working directory as the &ldquo;.&rdquo;. If you want to change it, just put the wanted directory into the <code>setwd</code> on the <em>run_analysis.R</em> script.</p>
 
 <pre><code class="r">if (!file.exists(&quot;./data&quot;)){
   dir.create(&quot;./data&quot;)
@@ -230,7 +230,7 @@ sapply(packages, require, character.only=TRUE, quietly=TRUE)
 fileName &lt;- &quot;./data/project_dataset.zip&quot;
 </code></pre>
 
-<p>Now, time to download the <em>.zip</em> file. If the file aready exists in the right place (./data/project_dataset.zip), we will skip the download for saving time.</p>
+<p>Now, time to download the <em>.zip</em> file. If the file already exists in the right place (./data/project_dataset.zip), we will skip the download for saving time.</p>
 
 <pre><code class="r">if (!file.exists(fileName)){
   download.file(url, destfile = fileName, method = &quot;curl&quot;)
@@ -240,7 +240,7 @@ dateDownload = file.info(fileName)[[&quot;mtime&quot;]]
 
 <h1>Reading data</h1>
 
-<p>Ok. file downloaded with date 2015-01-19 11:02:30. Now it&#39;s time to load and merge the needed files. Instead of extracting all files from de zip file, I&#39;ve used a <code>unz</code> connection. I&#39;m not shure if it was a good choice in terms of performance (may be it processes the entire zip file for each file I try to read) but, as the dataset wasn&#39;t that big, I made the choice of not landing the files inside de zip into my hard drive.</p>
+<p>Ok. file downloaded with date 2015-01-19 11:02:30. Now it&#39;s time to load and merge the needed files. Instead of extracting all files from de zip file, I&#39;ve used a <code>unz</code> connection. I&#39;m not sure if it was a good choice in terms of performance (may be it processes the entire zip file for each file I try to read) but, as the dataset wasn&#39;t that big, I made the choice of not landing the files inside de zip into my hard drive.</p>
 
 <p>For merging the training and testing datasets, I used <code>rbindlist</code> with a <code>list</code> consisting of two <code>read.table</code> returned objects.</p>
 
@@ -268,7 +268,7 @@ activity_labels &lt;- read.table(unz(fileName, &quot;UCI HAR Dataset/activity_la
 
 <h1>Naming variables</h1>
 
-<p>One I have all files I need loaded, and knowing that the files doesnt have headers,  I&#39;ll set the variables names.</p>
+<p>One I have all files I need loaded, and knowing that the files doesn&#39;t have headers,  I&#39;ll set the variables names.</p>
 
 <pre><code class="r">setnames(activities,c(&quot;activity_code&quot;)) 
 setnames(subjects,c(&quot;subject&quot;)) 
@@ -328,7 +328,7 @@ measurements &lt;- measurements_full[,selected_features, with=FALSE]
 ## [65] &quot;fBodyBodyGyroJerkMag-mean()&quot; &quot;fBodyBodyGyroJerkMag-std()&quot;
 </code></pre>
 
-<h1>Labeling activities</h1>
+<h1>Labelling activities</h1>
 
 <p>Time to add the labels of activities and at the same time, removing the <em>activity_code</em> field (or variable, if you wish )</p>
 

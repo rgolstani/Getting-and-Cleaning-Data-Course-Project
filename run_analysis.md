@@ -12,7 +12,7 @@ For details about the project, please, see [README](./README.md).
 
 Here we are going to create our *data* directory and download the required *.zp* file, and them, load the packages we will use for this project.
 
-First, we need to create a "data" dicrectory for our files. I've set de working directory as the ".". If you want to change it, just put the wanted directory into the `setwd` on the *run_analysis.R* script.
+First, we need to create a "data" directory for our files. I've set de working directory as the ".". If you want to change it, just put the wanted directory into the `setwd` on the *run_analysis.R* script.
 
 
 ```r
@@ -35,7 +35,7 @@ fileName <- "./data/project_dataset.zip"
 ```
 
 
-Now, time to download the *.zip* file. If the file aready exists in the right place (./data/project_dataset.zip), we will skip the download for saving time.
+Now, time to download the *.zip* file. If the file already exists in the right place (./data/project_dataset.zip), we will skip the download for saving time.
 
 
 ```r
@@ -47,7 +47,7 @@ dateDownload = file.info(fileName)[["mtime"]]
 
 # Reading data
 
-Ok. file downloaded with date 2015-01-19 11:02:30. Now it's time to load and merge the needed files. Instead of extracting all files from de zip file, I've used a `unz` connection. I'm not shure if it was a good choice in terms of performance (may be it processes the entire zip file for each file I try to read) but, as the dataset wasn't that big, I made the choice of not landing the files inside de zip into my hard drive.
+Ok. file downloaded with date 2015-01-19 11:02:30. Now it's time to load and merge the needed files. Instead of extracting all files from de zip file, I've used a `unz` connection. I'm not sure if it was a good choice in terms of performance (may be it processes the entire zip file for each file I try to read) but, as the dataset wasn't that big, I made the choice of not landing the files inside de zip into my hard drive.
 
 For merging the training and testing datasets, I used `rbindlist` with a `list` consisting of two `read.table` returned objects.
 
@@ -77,7 +77,7 @@ activity_labels <- read.table(unz(fileName, "UCI HAR Dataset/activity_labels.txt
 
 # Naming variables
 
-One I have all files I need loaded, and knowing that the files doesn`t have headers,  I'll set the variables names.
+One I have all files I need loaded, and knowing that the files doesn't have headers,  I'll set the variables names.
 
 
 ```r
@@ -146,7 +146,7 @@ names(measurements)
 ## [65] "fBodyBodyGyroJerkMag-mean()" "fBodyBodyGyroJerkMag-std()"
 ```
 
-# Labeling activities
+# Labelling activities
 
 Time to add the labels of activities and at the same time, removing the *activity_code* field (or variable, if you wish )
 
