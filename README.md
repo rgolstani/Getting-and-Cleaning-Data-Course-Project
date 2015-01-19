@@ -17,11 +17,11 @@ The goal is to create a "R" script to generate a tidy and neat dataset for use i
 
 The project consists of a script (run_analysis.R) that calls the *run_analysis.Rmd* which caries out all needed tasks. This includes:
 
-*install needed packages, 
-*set the working directory to the directory where the script was load from,  
-*download of the .zip file (if needed), 
-*processing and 
-*write down the results. 
+* install needed packages, 
+* set the working directory to the directory where the script was load from,  
+* download of the .zip file (if needed), 
+* processing and 
+* write down the results. 
 
 After, the main script  also calls the *CodeBook.Rmd* which generates the Code Book (CodeBook.md and CodeBook.html) that explains the contents of the resulting dataset.
 
